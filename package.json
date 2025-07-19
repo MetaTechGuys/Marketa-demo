@@ -8,10 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "tsck": "tsc --noEmit",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "npm run pages:build && wrangler pages dev",
-    "deploy": "npm run pages:build && wrangler pages deploy"
+    "tsck": "tsc --noEmit"
   },
   "dependencies": {
     "@bprogress/next": "^3.2.12",
