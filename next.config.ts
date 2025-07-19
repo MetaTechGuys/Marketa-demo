@@ -1,12 +1,12 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   pageExtensions: ['ts', 'tsx'],
-  externals: [
-    {
-      sharp: 'commonjs sharp',
-    },
-  ],
+}
+
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform()
 }
 
 // Merge MDX config with Next.js config
