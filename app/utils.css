@@ -1,0 +1,110 @@
+
+@utility cus-hv-center {
+  @apply flex flex-col justify-center items-center
+}
+
+body {
+  font-family: var(--sans);
+}
+
+.lead {
+  font-family: var(--sans);
+}
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+@utility no-scrollbars {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: initial;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scroll-lock {
+  opacity: 0;
+  position: fixed;
+  display: inline;
+}
+:root:has(div.scroll-lock) {
+  overflow-y: hidden !important;
+}
+
+@utility glass {
+  @apply backdrop-filter backdrop-blur-sm
+}
+
+@utility prose-mdx {
+  @apply prose prose-sm prose-headings:font-serif prose-headings:font-bold dark:prose-invert!;
+  --tw-prose-body: var(--color-slate-900);
+  --tw-prose-headings: var(--color-slate-900);
+  --tw-prose-lead: var(--color-slate-700);
+  --tw-prose-links: var(--color-slate-900);
+  --tw-prose-bold: var(--color-slate-900);
+  --tw-prose-counters: var(--color-slate-500);
+  --tw-prose-bullets: var(--color-slate-700);
+  --tw-prose-hr: var(--color-slate-200);
+  --tw-prose-quotes: var(--color-slate-900);
+  --tw-prose-quote-borders: var(--color-slate-200);
+  --tw-prose-captions: var(--color-slate-500);
+  --tw-prose-kbd: var(--color-slate-900);
+  --tw-prose-kbd-shadows: var(--color-slate-900);
+  --tw-prose-code: var(--color-slate-900);
+  --tw-prose-pre-code: var(--color-slate-200);
+  --tw-prose-pre-bg: var(--color-slate-800);
+  --tw-prose-th-borders: var(--color-slate-300);
+  --tw-prose-td-borders: var(--color-slate-200);
+  --tw-prose-invert-body: var(--color-slate-100);
+  --tw-prose-invert-headings: var(--color-slate-50);
+  --tw-prose-invert-lead: var(--color-slate-300);
+  --tw-prose-invert-links: var(--color-slate-50);
+  --tw-prose-invert-bold: var(--color-slate-50);
+  --tw-prose-invert-counters: var(--color-slate-400);
+  --tw-prose-invert-bullets: var(--color-slate-300);
+  --tw-prose-invert-hr: var(--color-slate-700);
+  --tw-prose-invert-quotes: var(--color-slate-100);
+  --tw-prose-invert-quote-borders: var(--color-slate-700);
+  --tw-prose-invert-captions: var(--color-slate-400);
+  --tw-prose-invert-kbd: var(--color-slate-50);
+  --tw-prose-invert-kbd-shadows: var(--color-slate-50);
+  --tw-prose-invert-code: var(--color-slate-50);
+  --tw-prose-invert-pre-code: var(--color-slate-300);
+  --tw-prose-invert-pre-bg: var(--color-slate-950);
+  --tw-prose-invert-th-borders: var(--color-slate-600);
+  --tw-prose-invert-td-borders: var(--color-slate-700);
+}
+
+body:has(.cursor-help:hover) #cursor-tail > span,
+body:has(.cursor-pointer:hover) #cursor-tail > span,
+body:has(a:hover) #cursor-tail > span,
+body:has(button:hover) #cursor-tail > span {
+  /* border: none; */
+  transform: scale(2.1);
+  /* backdrop-filter: grayscale() invert() brightness(80%); */
+}
+/* body.env-prod * {
+  cursor: none!important;
+} */
+
+@utility animate-shine {
+  color: transparent; /* Adjust this color to change intensity/style */
+  background: linear-gradient(
+    120deg,
+    var(--color-white) 45%,
+    color-mix(in oklab, oklch(0.554 0.046 257.417) 40%, transparent) 50%,
+    var(--color-white) 55%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 5s linear infinite;
+}
+
+@utility text-up-down {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
