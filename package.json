@@ -1,7 +1,7 @@
 {
   "name": "cap",
-  "version": "0.2.2",
-  "version.stamp": 1753797601653,
+  "version": "0.2.3",
+  "version.stamp": 1753798684189,
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -55,7 +55,7 @@
     "eslint-config-next": "15.3.3",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.1",
-    "husk": "^0.5.3",
+    "husky": "^9.1.7",
     "next-compose-plugins": "^2.2.1",
     "prettier-plugin-tailwindcss": "^0.6.12",
     "tailwindcss": "^4.1.4",
