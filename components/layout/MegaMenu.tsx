@@ -2,6 +2,13 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
+interface DemoData {
+  name: string
+}
+interface DemoRes {
+  data: DemoData[]
+}
+
 export default function MegaMenu() {
   const [items, setItems] = useState<string[]>([])
   const handleDemo = useCallback(async () => {
@@ -15,7 +22,7 @@ export default function MegaMenu() {
           },
         }
       )
-      const data = await res.json()
+      const data: DemoRes = await res.json()
       setItems(data.data.map((d) => d.name))
     } catch (e: unknown) {
       console.log('fetch error', e)
