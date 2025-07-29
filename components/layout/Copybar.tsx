@@ -4,7 +4,7 @@ export default function Copybar() {
       <div className="container mx-auto flex flex-1 justify-between text-sm">
         <div className="flex justify-start">
           <a className="link link-hover w-full truncate">
-            © 2025 by MTG LLC, bla bla bla
+            © 2025 by MTG LLC, <span></span>
           </a>
         </div>
         <div className="flex justify-end gap-4 max-sm:hidden">

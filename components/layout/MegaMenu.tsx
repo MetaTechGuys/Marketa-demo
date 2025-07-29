@@ -1,12 +1,32 @@
 'use client'
 
+import { useCallback, useEffect, useState } from 'react'
+
 export default function MegaMenu() {
+  const [items, setItems] = useState<string[]>([])
+  const handleDemo = useCallback(async () => {
+    try {
+      const res = await fetch(
+        'http://localhost:13000/api/product_categories:list',
+        {
+          headers: {
+            Authorization:
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsInJvbGVOYW1lIjoiYXBpLWNsaWVudCIsImlhdCI6MTc1MzcxMTA1NCwiZXhwIjozMzMxMTMxMTA1NH0.2e7wkfQRTZA26V1j7zoxtThuD9vLbzY2sTHbV2xs4TU',
+          },
+        }
+      )
+      const data = await res.json()
+      setItems(data.data.map((d) => d.name))
+    } catch (e: unknown) {
+      console.log('fetch error', e)
+    }
+  }, [])
+  useEffect(() => {
+    handleDemo()
+  }, [handleDemo])
   return (
     <nav className="navbar text-primary-content min-h-auto shadow-sm">
       <ul className="menu lg:menu-horizontal z-50 p-0">
-        <li>
-          <a>Item 1</a>
-        </li>
         <li>
           <details>
             <summary>Parent item</summary>
@@ -93,9 +113,11 @@ export default function MegaMenu() {
             </ul>
           </details>
         </li>
-        <li>
-          <a>Item 3</a>
-        </li>
+        {items.map((it) => (
+          <li key={it}>
+            <a>{it}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   )
